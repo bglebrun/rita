@@ -36,6 +36,7 @@ func BuildBeaconCollection(res *resources.Resources) {
 	collectionKeys := []mgo.Index{
 		{Key: []string{"uconn_id"}, Unique: true},
 		{Key: []string{"ts_score"}},
+		{Key: []string{"score"}},
 	}
 	err := res.DB.CreateCollection(collectionName, false, collectionKeys)
 	if err != nil {

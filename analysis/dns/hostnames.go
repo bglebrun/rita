@@ -24,7 +24,10 @@ func BuildHostnamesCollection(res *resources.Resources) {
 
 	res.DB.AggregateCollection(sourceCollectionName, ssn, pipeline)
 
-	indexes := []mgo.Index{{Key: []string{"host"}, Unique: true}}
+	indexes := []mgo.Index{
+		{Key: []string{"host"}, Unique: true},
+		{Key: []string{"ips"}},
+	}
 	err := res.DB.CreateCollection(hostNamesCollection, false, indexes)
 
 	if err != nil {

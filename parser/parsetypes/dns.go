@@ -68,5 +68,5 @@ func (in *DNS) TargetCollection(config *config.StructureTableCfg) string {
 
 //Indices gives MongoDB indices that should be used with the collection
 func (in *DNS) Indices() []string {
-	return []string{"$hashed:id_orig_h", "$hashed:id_resp_h", "$hashed:query"}
+	return []string{"$hashed:id_orig_h", "$hashed:id_resp_h", "$hashed:query", "answers"}
 }
